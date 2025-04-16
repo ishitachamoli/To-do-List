@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, rgb(128, 214, 225), rgb(196, 100, 148));
+    background-size: cover;
+    color: white;
+    padding-top: 2rem;
+    overflow-x: hidden;
+  }
+  
+  .edit-input {
+    width: 100%;
+    padding: 5px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    outline: none;
+    text-align: center;
+  }
+  
+  
+  .container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  h1 {
+    font-size: 90px;
+    letter-spacing: 5px;
+    font-family: 'Open Sans', cursive;
+    color: rgba(255, 255, 255, 0.9); /* Slight opacity for a softer look */
+  }
+  
+  .todo-website {
+    width: 500px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 1rem;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15); /* Smoother shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .todo-website:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.25); /* Hover effect */
+  }
+  
+  .todo-website h2 {
+    font-size: 2.2rem;
+    color: #002765;
+    text-align: center;
+  }
+  
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin: 30px 0;
+    width: 95%;
+    margin-inline: auto;
+  }
+  
+  input {
+    color: white;
+    font-size: 17px;
+    width: 100%;
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 500;
+    border-bottom: 1px solid white;
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus {
+    border-bottom: 1px solid #ff00ff; /* Highlight border on focus */
+  }
+  
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+  }
+  
+  button {
+    border: none;
+    outline: none;
+    padding: 12px 30px;
+    background: purple;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    background: #7b00b7; /* Darker shade of purple on hover */
+    transform: scale(1.05); /* Slight hover scaling */
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  ul li {
+    font-weight: 700;
+    list-style: none;
+    font-size: 15px;
+    text-transform: capitalize;
+    padding: 10px 30px;
+    user-select: none;
+    width: 80%;
+    min-height: 50px;
+    margin: 0 auto;
+    border-radius: 5rem;
+    cursor: pointer;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1); /* Slightly darker background */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.2s ease-in-out, transform 0.2s ease;
+  }
+  
+  ul li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-2px); /* Slight hover lift */
+  }
+  
+  .checked {
+    color: #ff00ff;
+    text-decoration: line-through;
+  }
+  
+  ul li span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+    color: #ff00ff;
+    text-align: center;
+  }
+  
+  ul li i {
+    pointer-events: none;
+  }
+  
+  
+  /* Responsiveness */
+  
+  @media only screen and (max-width: 550px) {
+    body {
+      margin-top: 5rem;
+    }
+    .todo-website {
+      width: 90%;
+    }
+    h1 {
+      font-size: 15vw;
+    }
+    ul li {
+      width: 90%;
+    }
+  }
+  
+  /* General styling for the task list */
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Style for the task text */
+  .task-text {
+    flex: 1;
+    padding: 5px;
+  }
+  
+  /* Icon button styling */
+  button.edit-btn, button.delete-btn {
+    background-color: transparent;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 8px;
+  }
+  
+  button.edit-btn:hover, button.delete-btn:hover {
+    color: #000;
+  }
+  
+  button.edit-btn i, button.delete-btn i {
+    pointer-events: none; /* Prevent clicking the icon itself */
+  }
+  
+  /* Reduce the size of the icon buttons */
+  button.edit-btn i, button.delete-btn i {
+    font-size: 16px; /* Adjust the icon size */
+  }
+  
+  li:hover button.edit-btn, li:hover button.delete-btn {
+    visibility: visible;
+  }
+  
+  /* Hide the buttons until the list item is hovered over */
+  button.edit-btn, button.delete-btn {
+    visibility: hidden;
+  }

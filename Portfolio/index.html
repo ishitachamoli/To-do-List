@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-doish</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script defer src="script.js"></script>
+    <!-- Added defer to ensure the script loads after the DOM -->
+  </head>
+  <body>
+    <div class="container">
+      <h1>To-do List</h1>
+      <div class="todo-website">
+        <div class="row">
+          <input type="search" id="input-box" placeholder="Add a task" />
+          <button id="add-btn">Add</button>
+        </div>
+        <ul id="list-container"></ul>
+        <!-- Emptied initial list to be populated via JS -->
+        <div class="row">
+          <button id="clear-completed">Remove Completed</button>
+          <button id="delete-all">Clear All</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
