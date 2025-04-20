@@ -250,3 +250,13 @@
   button.edit-btn, button.delete-btn {
     visibility: hidden;
   }
+
+
+  @keyframes pop {
+    0% { transform: scale(0.95); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+button:active {
+    animation: pop 0.3s ease-in-out;
+}
