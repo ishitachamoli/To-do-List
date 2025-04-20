@@ -228,7 +228,7 @@
   input{
     padding:12px;
     border-radius:8px;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.3);
   }
   /* Hide the buttons until the list item is hovered over */
   button.edit-btn, button.delete-btn {
