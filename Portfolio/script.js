@@ -18,14 +18,21 @@ document.getElementById("delete-all").addEventListener("click", deleteAllData);
 
 function addTask() {
   const taskText = inputBox.value.trim();
+  const dueDate = document.getElementById("due-date").value; // Get due date
+
   if (taskText === "") {
     alert("Can't add an empty task!");
   } else {
-    tasks.push({ text: taskText, completed: false }); // Add task with a completed flag
+    tasks.push({ 
+      text: taskText, 
+      completed: false,
+      dueDate: dueDate || null // Store due date (or null if empty)
+    });
     saveData();
   }
-  inputBox.value = ""; // Clear input
-  showData(); // Display updated tasks
+  inputBox.value = "";
+  document.getElementById("due-date").value = ""; // Clear date input
+  showData();
 }
 
 // Save tasks to localStorage
