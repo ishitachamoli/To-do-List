@@ -243,6 +243,9 @@
     border-radius:8px;
     background: rgba(255,255,255,0.3);
   }
+  body{
+    background: linear-gradient(135deg, #81D6E1, #C46494, #75387A);
+  }
   /* Hide the buttons until the list item is hovered over */
   button.edit-btn, button.delete-btn {
     visibility: hidden;
