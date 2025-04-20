@@ -225,7 +225,11 @@
   li:hover button.edit-btn, li:hover button.delete-btn {
     visibility: visible;
   }
-  
+  input{
+    padding:12px;
+    border-radius:8px;
+    background: rgba(255,255,255,0.2);
+  }
   /* Hide the buttons until the list item is hovered over */
   button.edit-btn, button.delete-btn {
     visibility: hidden;
