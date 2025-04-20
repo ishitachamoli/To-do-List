@@ -260,3 +260,19 @@
 button:active {
     animation: pop 0.3s ease-in-out;
 }
+
+input:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.3s ease;
+}
+
+
+@media only screen and (max-width: 400px) {
+  input, button {
+     font-size: 1.2rem;
+     padding: 8px;
+  }
+  h1 {
+     font-size: 12vw;
+  }
+}
