@@ -1,6 +1,6 @@
 const listContainer = document.getElementById("list-container");
 const inputBox = document.getElementById("input-box");
-let tasks = JSON.parse(localStorage.getItem("tasks")) || []; // Load tasks from localStorage or set to an empty array
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 document.getElementById("add-btn").addEventListener("click", addTask);
 addEventListener("keydown", (e) => {
@@ -9,23 +9,20 @@ addEventListener("keydown", (e) => {
   }
 });
 
-// Clear completed tasks
-document
-  .getElementById("clear-completed")
-  .addEventListener("click", removeCompletedTasks);
-
+document.getElementById("clear-completed").addEventListener("click", removeCompletedTasks);
 document.getElementById("delete-all").addEventListener("click", deleteAllData);
 
 function addTask() {
   const taskText = inputBox.value.trim();
   const dueDate = document.getElementById("due-date").value;
-  const priority = document.getElementById("priority").value; // Get priority
+  const priority = document.getElementById("priority").value;
 
   if (taskText === "") {
     alert("Can't add an empty task!");
+    return;
   } else {
-    tasks.push({ 
-      text: taskText, 
+    tasks.push({
+      text: taskText,
       completed: false,
       dueDate: dueDate || null,
       priority: priority || "low"
@@ -38,37 +35,34 @@ function addTask() {
   showData();
 }
 
-// Save tasks to localStorage
 function saveData() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// Delete all tasks
 function deleteAllData() {
   tasks = [];
-  saveData(); // Update localStorage
-  showData(); // Refresh the list
+  saveData();
+  showData();
 }
 
-// Mark tasks as completed, delete or edit them
 listContainer.addEventListener("click", (e) => {
   const targetElement = e.target;
 
   // Toggle task completion
   if (targetElement.classList.contains("task-text") && !targetElement.isContentEditable) {
     const index = targetElement.getAttribute("data-index");
-    tasks[index].completed = !tasks[index].completed; // Toggle completion status
+    tasks[index].completed = !tasks[index].completed;
     saveData();
     showData();
   }
-  
+
   // Delete a specific task
   if (targetElement.classList.contains("delete-btn")) {
     const index = targetElement.getAttribute("data-index");
     deleteItem(index);
     showData();
   }
-  
+
   // Edit a specific task (Edit button clicked)
   if (targetElement.classList.contains("edit-btn")) {
     const taskDiv = targetElement.previousElementSibling;
@@ -76,93 +70,38 @@ listContainer.addEventListener("click", (e) => {
   }
 });
 
-// Remove a specific task
 function deleteItem(index) {
-  tasks.splice(index, 1); // Remove task at index
-  saveData(); // Update localStorage
+  tasks.splice(index, 1);
+  saveData();
 }
 
-// Edit task (on Edit button click)
 function editTask(taskDiv) {
   const index = taskDiv.getAttribute("data-index");
   const originalText = tasks[index].text;
-  
-  // Create input field to replace task text
+
   const input = document.createElement("input");
   input.type = "text";
   input.value = originalText;
   input.classList.add("edit-input");
 
-  taskDiv.replaceWith(input); // Replace div with input field
+  taskDiv.replaceWith(input);
+  input.focus();
 
-  input.focus(); // Focus on input field
-
-  // Save on pressing "Enter" or losing focus
   input.addEventListener("blur", () => saveEditedTask(input, index));
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") saveEditedTask(input, index);
   });
 }
 
-// Save the edited task
 function saveEditedTask(input, index) {
   const newText = input.value.trim();
   if (newText !== "") {
-    tasks[index].text = newText; // Update task text
+    tasks[index].text = newText;
   }
-  saveData(); // Update localStorage
-  showData(); // Re-render tasks
+  saveData();
+  showData();
 }
 
-// Display tasks in the DOM
-function showData() {
-  listContainer.innerHTML = "";
-  tasks.forEach((task, index) => {
-    let li = document.createElement("li");
-
-    const taskDiv = document.createElement("div");
-    taskDiv.setAttribute("data-index", index);
-    taskDiv.classList.add("task-text");
-    taskDiv.textContent = task.text;
-    if (task.completed) {
-      taskDiv.classList.add("checked");
-    }
-
-    // Show due date (if any)
-    if (task.dueDate) {
-      const dueDateElement = document.createElement("div");
-      dueDateElement.classList.add("due-date");
-      dueDateElement.textContent = `Due: ${formatDate(task.dueDate)}`;
-      taskDiv.appendChild(dueDateElement);
-    }
-
-    // Show priority (only ONCE)
-    if (task.priority) {
-      const priorityElement = document.createElement("div");
-      priorityElement.classList.add("priority");
-      priorityElement.textContent = `Priority: ${task.priority}`;
-      taskDiv.appendChild(priorityElement);
-    }
-
-    li.appendChild(taskDiv);
-
-    // Add Edit Icon Button
-    const editButton = document.createElement("button");
-    editButton.classList.add("edit-btn");
-    editButton.setAttribute("data-index", index);
-    editButton.innerHTML = "<i class='fas fa-edit'></i>";
-    li.appendChild(editButton);
-
-    // Add Delete Icon Button
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete-btn");
-    deleteButton.setAttribute("data-index", index);
-    deleteButton.innerHTML = "<i class='fas fa-trash'></i>";
-    li.appendChild(deleteButton);
-
-    listContainer.appendChild(li);
-  });
-}
 function showData() {
   listContainer.innerHTML = "";
   tasks.forEach((task, index) => {
@@ -212,66 +151,17 @@ function showData() {
   });
 }
 
-
-    // Show priority (if any)
-    if (task.priority) {
-      const priorityElement = document.createElement("div");
-      priorityElement.classList.add("priority");
-      priorityElement.textContent = `Priority: ${task.priority}`;
-      taskDiv.appendChild(priorityElement);
-    }
-
-    li.appendChild(taskDiv);
-
-    // Add Edit Icon Button
-    const editButton = document.createElement("button");
-    editButton.classList.add("edit-btn");
-    editButton.setAttribute("data-index", index);
-    editButton.innerHTML = "<i class='fas fa-edit'></i>";
-    li.appendChild(editButton);
-
-    // Add Delete Icon Button
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete-btn");
-    deleteButton.setAttribute("data-index", index);
-    deleteButton.innerHTML = "<i class='fas fa-trash'></i>";
-    li.appendChild(deleteButton);
-
-    listContainer.appendChild(li);
-  });
-}
-
-    li.appendChild(taskDiv);
-
-    // Add Edit Icon Button
-    const editButton = document.createElement("button");
-    editButton.classList.add("edit-btn");
-    editButton.setAttribute("data-index", index);
-    editButton.innerHTML = "<i class='fas fa-edit'></i>"; // Font Awesome edit icon
-    li.appendChild(editButton);
-
-    // Add Delete Icon Button
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete-btn");
-    deleteButton.setAttribute("data-index", index);
-    deleteButton.innerHTML = "<i class='fas fa-trash'></i>"; // Font Awesome trash icon
-    li.appendChild(deleteButton);
-
-    listContainer.appendChild(li);
-
-
-// Remove all completed tasks
 function removeCompletedTasks() {
-  tasks = tasks.filter((task) => !task.completed); // Keep only non-completed tasks
-  saveData(); // Update localStorage
-  showData(); // Refresh the list
+  tasks = tasks.filter((task) => !task.completed);
+  saveData();
+  showData();
 }
-
-// Initial rendering of the task list
-showData();
 
 function formatDate(dateString) {
   if (!dateString) return '';
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
   return new Date(dateString).toLocaleDateString('en-US', options);
 }
+
+// Initial rendering of the task list
+showData();
