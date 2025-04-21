@@ -136,11 +136,80 @@ function showData() {
       taskDiv.appendChild(dueDateElement);
     }
 
+    // Show priority (only ONCE)
     if (task.priority) {
-  const priorityElement = document.createElement("div");
-  priorityElement.classList.add("priority");
-  priorityElement.textContent = `Priority: ${task.priority}`;
-  taskDiv.appendChild(priorityElement);
+      const priorityElement = document.createElement("div");
+      priorityElement.classList.add("priority");
+      priorityElement.textContent = `Priority: ${task.priority}`;
+      taskDiv.appendChild(priorityElement);
+    }
+
+    li.appendChild(taskDiv);
+
+    // Add Edit Icon Button
+    const editButton = document.createElement("button");
+    editButton.classList.add("edit-btn");
+    editButton.setAttribute("data-index", index);
+    editButton.innerHTML = "<i class='fas fa-edit'></i>";
+    li.appendChild(editButton);
+
+    // Add Delete Icon Button
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-btn");
+    deleteButton.setAttribute("data-index", index);
+    deleteButton.innerHTML = "<i class='fas fa-trash'></i>";
+    li.appendChild(deleteButton);
+
+    listContainer.appendChild(li);
+  });
+}
+function showData() {
+  listContainer.innerHTML = "";
+  tasks.forEach((task, index) => {
+    let li = document.createElement("li");
+
+    const taskDiv = document.createElement("div");
+    taskDiv.setAttribute("data-index", index);
+    taskDiv.classList.add("task-text");
+    taskDiv.textContent = task.text;
+    if (task.completed) {
+      taskDiv.classList.add("checked");
+    }
+
+    // Show due date (if any)
+    if (task.dueDate) {
+      const dueDateElement = document.createElement("div");
+      dueDateElement.classList.add("due-date");
+      dueDateElement.textContent = `Due: ${formatDate(task.dueDate)}`;
+      taskDiv.appendChild(dueDateElement);
+    }
+
+    // Show priority (only ONCE)
+    if (task.priority) {
+      const priorityElement = document.createElement("div");
+      priorityElement.classList.add("priority");
+      priorityElement.textContent = `Priority: ${task.priority}`;
+      taskDiv.appendChild(priorityElement);
+    }
+
+    li.appendChild(taskDiv);
+
+    // Add Edit Icon Button
+    const editButton = document.createElement("button");
+    editButton.classList.add("edit-btn");
+    editButton.setAttribute("data-index", index);
+    editButton.innerHTML = "<i class='fas fa-edit'></i>";
+    li.appendChild(editButton);
+
+    // Add Delete Icon Button
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-btn");
+    deleteButton.setAttribute("data-index", index);
+    deleteButton.innerHTML = "<i class='fas fa-trash'></i>";
+    li.appendChild(deleteButton);
+
+    listContainer.appendChild(li);
+  });
 }
 
 
