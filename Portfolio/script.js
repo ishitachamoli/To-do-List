@@ -18,7 +18,8 @@ document.getElementById("delete-all").addEventListener("click", deleteAllData);
 
 function addTask() {
   const taskText = inputBox.value.trim();
-  const dueDate = document.getElementById("due-date").value; // Get due date
+  const dueDate = document.getElementById("due-date").value;
+  const priority = document.getElementById("priority").value; // Get priority
 
   if (taskText === "") {
     alert("Can't add an empty task!");
@@ -26,12 +27,14 @@ function addTask() {
     tasks.push({ 
       text: taskText, 
       completed: false,
-      dueDate: dueDate || null // Store due date (or null if empty)
+      dueDate: dueDate || null,
+      priority: priority || "low" // Default to low if not set
     });
     saveData();
   }
   inputBox.value = "";
-  document.getElementById("due-date").value = ""; // Clear date input
+  document.getElementById("due-date").value = "";
+  document.getElementById("priority").value = "low";
   showData();
 }
 
@@ -122,8 +125,45 @@ function showData() {
     taskDiv.classList.add("task-text");
     taskDiv.textContent = task.text;
     if (task.completed) {
-      taskDiv.classList.add("checked"); // Add 'checked' class if the task is completed
+      taskDiv.classList.add("checked");
     }
+
+    // Show due date (if any)
+    if (task.dueDate) {
+      const dueDateElement = document.createElement("div");
+      dueDateElement.classList.add("due-date");
+      dueDateElement.textContent = `Due: ${formatDate(task.dueDate)}`;
+      taskDiv.appendChild(dueDateElement);
+    }
+
+    // Show priority (if any)
+    if (task.priority) {
+      const priorityElement = document.createElement("div");
+      priorityElement.classList.add("priority");
+      priorityElement.textContent = `Priority: ${task.priority}`;
+      taskDiv.appendChild(priorityElement);
+    }
+
+    li.appendChild(taskDiv);
+
+    // Add Edit Icon Button
+    const editButton = document.createElement("button");
+    editButton.classList.add("edit-btn");
+    editButton.setAttribute("data-index", index);
+    editButton.innerHTML = "<i class='fas fa-edit'></i>";
+    li.appendChild(editButton);
+
+    // Add Delete Icon Button
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-btn");
+    deleteButton.setAttribute("data-index", index);
+    deleteButton.innerHTML = "<i class='fas fa-trash'></i>";
+    li.appendChild(deleteButton);
+
+    listContainer.appendChild(li);
+  });
+}
+
     li.appendChild(taskDiv);
 
     // Add Edit Icon Button
@@ -141,8 +181,7 @@ function showData() {
     li.appendChild(deleteButton);
 
     listContainer.appendChild(li);
-  });
-}
+
 
 // Remove all completed tasks
 function removeCompletedTasks() {
@@ -153,3 +192,9 @@ function removeCompletedTasks() {
 
 // Initial rendering of the task list
 showData();
+
+function formatDate(dateString) {
+  if (!dateString) return '';
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('en-US', options);
+}
