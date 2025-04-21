@@ -28,7 +28,7 @@ function addTask() {
       text: taskText, 
       completed: false,
       dueDate: dueDate || null,
-      priority: priority || "low" // Default to low if not set
+      priority: priority || "low"
     });
     saveData();
   }
@@ -135,6 +135,14 @@ function showData() {
       dueDateElement.textContent = `Due: ${formatDate(task.dueDate)}`;
       taskDiv.appendChild(dueDateElement);
     }
+
+    if (task.priority) {
+  const priorityElement = document.createElement("div");
+  priorityElement.classList.add("priority");
+  priorityElement.textContent = `Priority: ${task.priority}`;
+  taskDiv.appendChild(priorityElement);
+}
+
 
     // Show priority (if any)
     if (task.priority) {
