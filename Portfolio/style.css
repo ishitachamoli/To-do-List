@@ -15,7 +15,7 @@
   
   .edit-input {
     width: 100%;
-    padding: 5.1px;
+    padding: 5px;
     font-size: 15px;
     background: rgba(255, 255, 255, 0.2);
     color: white;
@@ -52,8 +52,8 @@
   }  
   
   .container {
-    height: 100.1vh;
-    width: 100.1%;
+    height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
