@@ -255,6 +255,7 @@
     cursor: pointer;
     font-size: 16px;
     margin-left: 8px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
   }
   
   button.edit-btn:hover, button.delete-btn:hover {
