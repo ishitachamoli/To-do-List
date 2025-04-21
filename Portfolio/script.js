@@ -163,5 +163,24 @@ function formatDate(dateString) {
   return new Date(dateString).toLocaleDateString('en-US', options);
 }
 
+// Dark mode toggle logic
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+// On page load, check localStorage and set mode
+if (localStorage.getItem('darkMode') === 'enabled') {
+  document.body.classList.add('dark-mode');
+  darkModeToggle.checked = true;
+}
+
+darkModeToggle.addEventListener('change', function () {
+  if (this.checked) {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('darkMode', 'enabled');
+  } else {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('darkMode', 'disabled');
+  }
+});
+
 // Initial rendering of the task list
 showData();
