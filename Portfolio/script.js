@@ -116,6 +116,17 @@ function saveEditedTask(input, index) {
 
 function showData() {
   listContainer.innerHTML = "";
+  
+  if (tasks.length === 0) {
+  const emptyMsg = document.createElement("div");
+  emptyMsg.textContent = "No tasks yet! 🎉";
+  emptyMsg.style.textAlign = "center";
+  emptyMsg.style.color = "#aaa";
+  emptyMsg.style.padding = "2rem 0";
+  listContainer.appendChild(emptyMsg);
+  return;
+ }
+  
   tasks.forEach((task, index) => {
     let li = document.createElement("li");
 
