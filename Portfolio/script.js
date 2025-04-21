@@ -17,6 +17,12 @@ function addTask() {
   const dueDate = document.getElementById("due-date").value;
   const priority = document.getElementById("priority").value;
 
+  // Prevents duplicate tasks
+  if (tasks.some(task => task.text === taskText)) {
+  alert("Task already exists!");
+  return;
+  }
+
   if (taskText === "") {
     alert("Can't add an empty task!");
     return;
