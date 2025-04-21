@@ -204,6 +204,7 @@
     font-size: 1.4rem;
     color: #ff00ff;
     text-align: center;
+    box-shadow: 0 0 5px rgba(255, 0, 255, 0.4);
   }
   
   ul li i {
