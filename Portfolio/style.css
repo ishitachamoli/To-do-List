@@ -383,33 +383,79 @@ ul li {
 }
 
 body.dark-mode {
-  background: #181818;
-  color: #f5f5f5;
+  background: linear-gradient(135deg, #231942, #3a0ca3 60%, #7209b7 100%);
+  color: #f8f7ff;
 }
 
 body.dark-mode .todo-website {
-  background: rgba(30, 30, 30, 0.7);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+  background: rgba(40, 20, 60, 0.85);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.6);
+  border: 1.5px solid #7209b7;
+}
+
+body.dark-mode h1,
+body.dark-mode .quote-banner,
+body.dark-mode footer {
+  color: #f8f7ff;
+  text-shadow: 0 2px 8px #7209b755;
+}
+
+body.dark-mode .quote-banner {
+  background: rgba(114, 9, 183, 0.14);
+  color: #f8f7ff;
+  border-left: 4px solid #f72585;
 }
 
 body.dark-mode input,
 body.dark-mode #due-date,
 body.dark-mode #priority {
-  background: rgba(255,255,255,0.08);
-  color: #f5f5f5;
-  border-bottom: 1px solid #bbb;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8f7ff;
+  border-bottom: 1.5px solid #f72585;
+}
+
+body.dark-mode input::placeholder {
+  color: #f8f7ffbb;
 }
 
 body.dark-mode ul li {
-  background: rgba(255,255,255,0.08);
-  color: #f5f5f5;
+  background: rgba(114, 9, 183, 0.15);
+  color: #f8f7ff;
+  border: 1px solid #7209b7;
+  box-shadow: 0 2px 8px #3a0ca355;
 }
 
 body.dark-mode .checked {
-  color: #ffb3ff;
+  color: #f72585;
+  text-decoration: line-through;
+}
+
+body.dark-mode .priority {
+  color: #f72585;
+}
+
+body.dark-mode .due-date {
+  color: #b5179e;
 }
 
 body.dark-mode button {
-  background: #333;
+  background: linear-gradient(90deg, #f72585 0%, #7209b7 100%);
   color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px #7209b755;
+}
+
+body.dark-mode button:hover {
+  background: linear-gradient(90deg, #b5179e 0%, #3a0ca3 100%);
+  color: #fff;
+}
+
+body.dark-mode .edit-btn, 
+body.dark-mode .delete-btn {
+  color: #f8f7ff;
+}
+
+body.dark-mode .edit-btn:hover, 
+body.dark-mode .delete-btn:hover {
+  color: #f72585;
 }
