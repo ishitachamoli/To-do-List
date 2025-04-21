@@ -40,6 +40,7 @@ function saveData() {
 }
 
 function deleteAllData() {
+  if (!confirm("Are you sure you want to delete all tasks?")) return;
   tasks = [];
   saveData();
   showData();
