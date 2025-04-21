@@ -329,7 +329,7 @@ input:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 body:has(#dark-mode-toggle:checked) .todo-website {
-  background: rgba(196, 100, 148, 0.1); /* Slightly darker pinkish color for dark mode */
+  background: rgba(57, 20, 39, 10%); /* Slightly darker pinkish color for dark mode */
   backdrop-filter: blur(10px);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); /* Darker shadow */
 }
