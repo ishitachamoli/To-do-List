@@ -4,10 +4,15 @@ let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 document.getElementById("add-btn").addEventListener("click", addTask);
 addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && inputBox.value.trim()) {
+  // Enter adds task if input is focused, Ctrl+Enter always adds if input not empty
+  if (
+    (e.key === "Enter" && document.activeElement === inputBox && inputBox.value.trim()) ||
+    (e.ctrlKey && e.key === "Enter" && inputBox.value.trim())
+  ) {
     addTask();
   }
 });
+
 
 document.getElementById("clear-completed").addEventListener("click", removeCompletedTasks);
 document.getElementById("delete-all").addEventListener("click", deleteAllData);
