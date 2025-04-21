@@ -83,7 +83,7 @@ listContainer.addEventListener("click", (e) => {
 });
 
 function deleteItem(index) {
-  tasks.splice(index, 1);
+  tasks.splice(index,1);
   saveData();
 }
 
