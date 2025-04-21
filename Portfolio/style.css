@@ -23,6 +23,14 @@
     outline: none;
     text-align: center;
   }
+
+    .row > * {
+      margin-right: 10px;
+    }
+    
+    .row > *:last-child {
+      margin-right: 0;
+    }
   
   #due-date {
     background: rgba(255, 255, 255, 0.2);
