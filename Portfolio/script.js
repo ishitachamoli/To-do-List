@@ -116,7 +116,14 @@ function saveEditedTask(input, index) {
 
 function showData() {
   listContainer.innerHTML = "";
-  
+
+  // Added the task counter update here
+  const counter = document.getElementById("task-counter");
+  if (counter) {
+    const completed = tasks.filter(t => t.completed).length;
+    counter.textContent = `Total: ${tasks.length} | Completed: ${completed}`;
+  }
+
   if (tasks.length === 0) {
   const emptyMsg = document.createElement("div");
   emptyMsg.textContent = "No tasks yet! 🎉";
@@ -138,7 +145,7 @@ function showData() {
       taskDiv.classList.add("checked");
     }
 
-    // Show due date (if any)
+    // Shows due date (if any)
     if (task.dueDate) {
       const dueDateElement = document.createElement("div");
       dueDateElement.classList.add("due-date");
@@ -146,7 +153,7 @@ function showData() {
       taskDiv.appendChild(dueDateElement);
     }
 
-    // Show priority (only ONCE)
+    // Shows priority of task
     if (task.priority) {
       const priorityElement = document.createElement("div");
       priorityElement.classList.add("priority");
@@ -156,14 +163,14 @@ function showData() {
 
     li.appendChild(taskDiv);
 
-    // Add Edit Icon Button
+    // Added Edit Icon Button
     const editButton = document.createElement("button");
     editButton.classList.add("edit-btn");
     editButton.setAttribute("data-index", index);
     editButton.innerHTML = "<i class='fas fa-edit'></i>";
     li.appendChild(editButton);
 
-    // Add Delete Icon Button
+    // Added Delete Icon Button
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-btn");
     deleteButton.setAttribute("data-index", index);
@@ -186,10 +193,9 @@ function formatDate(dateString) {
   return new Date(dateString).toLocaleDateString('en-US', options);
 }
 
-// Dark mode toggle logic
+// Dark mode toggle
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 
-// On page load, check localStorage and set mode
 if (localStorage.getItem('darkMode') === 'enabled') {
   document.body.classList.add('dark-mode');
   darkModeToggle.checked = true;
