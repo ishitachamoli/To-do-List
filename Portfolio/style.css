@@ -467,3 +467,10 @@ body.dark-mode .edit-btn:hover,
 body.dark-mode .delete-btn:hover {
   color: #f72585;
 }
+footer {
+  text-align: center;
+  padding-bottom: 15px;
+}
+.overdue {
+  background-color: rgba(255, 0, 0, 0.3) !important;
+}
