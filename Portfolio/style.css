@@ -147,7 +147,7 @@
     padding: 12px 30px;
     background: purple;
     color: white;
-    font-size: 1rem;
+    font-size: 0.9rem;
     cursor: pointer;
     border-radius: 40px;
     transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
