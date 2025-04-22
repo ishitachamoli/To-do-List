@@ -1,0 +1,23 @@
+project:
+  name: To-Do List Web App
+  framework: None
+  language: HTML, CSS, JavaScript
+  package_manager: None
+
+structure:
+  root:
+    - index.html
+    - style.css
+    - script.js
+    - assets:
+        - images/
+        - icons/
+
+environment:
+  port: 5500
+
+description: >
+    This is a modern, responsive To-Do List web application built using HTML, CSS, and JavaScript.
+  It features task creation, editing, deletion, priority selection, dark mode, task counters,
+  and a clean, aesthetic UI. All data is stored in the browser using localStorage—no backend
+  required.
