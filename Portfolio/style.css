@@ -469,7 +469,7 @@ body.dark-mode .delete-btn:hover {
 }
 footer {
   text-align: center;
-  padding-bottom: 15px;
+  padding: 25px 0;
 }
 .overdue {
   background-color: rgba(255, 0, 0, 0.3) !important;
