@@ -474,3 +474,6 @@ footer {
 .overdue {
   background-color: rgba(255, 0, 0, 0.3) !important;
 }
+.overdue button.edit-btn, .overdue button.delete-btn {
+    color: #fff !important;
+}
