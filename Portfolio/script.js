@@ -29,7 +29,7 @@ function addTask() {
   }
 
   if (taskText === "") {
-    alert("Can't add an empty task!");
+    alert("Can't add an empty tasks!");
     return;
   } else {
     tasks.push({
