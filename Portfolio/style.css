@@ -277,7 +277,7 @@
   input{
     padding:12px;
     border-radius:8px;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.4);
   }
   body{
     background: linear-gradient(135deg, #81D6E1, #C46494, #75387A);
