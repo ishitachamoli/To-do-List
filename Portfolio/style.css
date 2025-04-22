@@ -341,7 +341,7 @@ body:has(#dark-mode-toggle:checked) .todo-website {
   position: relative;
   display: inline-block;
   width: 60px;
-  height: 34px;
+  height: 35px;
 }
 
 .switch input {
