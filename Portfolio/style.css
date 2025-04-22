@@ -355,7 +355,7 @@ body:has(#dark-mode-toggle:checked) .todo-website {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  transition: 0.4s;
+  transition: 0.5s;
   border-radius: 34px;
 }
 
