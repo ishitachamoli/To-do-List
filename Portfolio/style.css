@@ -450,7 +450,7 @@ body.dark-mode button {
   background: linear-gradient(90deg, #f72585 0%, #7209b7 100%);
   color: #fff;
   border: none;
-  box-shadow: 0 2px 8px #7209b755;
+  box-shadow: 0 1.8px 7.9px #7209b755;
 }
 
 body.dark-mode button:hover {
