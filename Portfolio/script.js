@@ -179,6 +179,7 @@ function showData() {
 
     listContainer.appendChild(li);
   });
+   markOverdueTasks(); // ✅ Safely added here
 }
 
 function removeCompletedTasks() {
@@ -191,6 +192,32 @@ function formatDate(dateString) {
   if (!dateString) return '';
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
   return new Date(dateString).toLocaleDateString('en-US', options);
+}
+// New: Overdue highlight function
+function markOverdueTasks() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const listItems = listContainer.querySelectorAll("li");
+
+  listItems.forEach(li => {
+    const div = li.querySelector('.task-text');
+    const index = div?.getAttribute('data-index');
+    const task = tasks[index];
+
+    if (task && task.dueDate && !task.completed) {
+      const dueDate = new Date(task.dueDate);
+      dueDate.setHours(0, 0, 0, 0);
+
+      if (dueDate < today) {
+        li.classList.add('overdue');
+      } else {
+        li.classList.remove('overdue');
+      }
+    } else {
+      li.classList.remove('overdue');
+}
+});
 }
 
 // Dark mode toggle
