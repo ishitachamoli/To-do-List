@@ -1,0 +1,479 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, rgb(128, 214, 225), rgb(196, 100, 148));
+    background-size: cover;
+    color: white;
+    padding-top: 2.1rem;
+    overflow-x: hidden;
+  }
+  
+  .edit-input {
+    width: 100%;
+    padding: 5px;
+    font-size: 15.7px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    outline: none;
+    text-align: center;
+  }
+
+    .row > * {
+      margin-right: 10px;
+    }
+    
+    .row > *:last-child {
+      margin-right: 0;
+    }
+    #input-box, #due-date, #priority, #add-btn {
+      min-width: 80px;
+      height: 40px;
+      box-sizing: border-box;
+    }
+  
+  #due-date {
+    background: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.889);
+    border: none;
+    border-radius: 4.1px;
+    padding: 8px;
+    margin-left: 10px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  #due-date::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }  
+  
+  .container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6.9 rem;
+  }
+  
+  h1 {
+    font-size: 91px;
+    letter-spacing: 5.2px;
+    font-family: 'Sans-serif', cursive;
+    color: rgba(255, 255, 255, 0.9); /* Slight opacity for a softer look */
+  }
+  
+.todo-website {
+  width: 700px;                /* Made the box wider */
+  max-width: 95vw;             /* Responsive for small screens */
+  padding: 48px 48px 36px 48px; /* More padding for comfort */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(13.9px);
+  border-radius: 1.5rem;
+  box-shadow: 0px 18px 40px rgba(0, 0, 0, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+  
+  .todo-website:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.25); /* Hover effect */
+  }
+  
+  .todo-website h2 {
+    font-size: 2.2rem;
+    color: #002765;
+    text-align: center;
+  }
+  
+  .row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 29.5px;
+    padding-left: 20px;
+    margin: 30px 0;
+    margin-inline: auto;
+    gap: 16px; /* more space between items */
+}
+
+  
+  input {
+    color: white;
+    font-size: 17px;
+    width: 100%;
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 500;
+    border-bottom: 1px solid white;
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus {
+    border-bottom: 1px solid #ff00ff; /* Highlight border on focus */
+  }
+  
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+  }
+  
+  #priority {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    margin-left: 10px;
+    font-family: 'Poppins', sans-serif;
+  }
+  .priority {
+    font-size: 12px;
+    color: #ffd700;
+    margin-top: 2px;
+  }
+
+  button {
+    border: none;
+    outline: none;
+    padding: 12px 30px;
+    background: purple;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    background: #7b00b7; /* Darker shade of purple on hover */
+    transform: scale(1.05); /* Slight hover scaling */
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  ul li {
+    font-weight: 700;
+    list-style: none;
+    font-size: 15px;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+    padding: 10px 30px;
+    user-select: none;
+    width: 79.8%;
+    min-height: 50px;
+    margin: 0.0 auto;
+    border-radius: 5rem;
+    cursor: pointer;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1); /* Slightly darker background */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.2s ease-in-out, transform 0.2s ease;
+  }
+  
+  ul li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-2px); /* Slight hover lift */
+  }
+  
+  .checked {
+    color: #ff00ff;
+    text-decoration: line-through;
+  }
+  
+  ul li span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+    color: #ff00ff;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(255, 0, 255, 0.4);
+  }
+  
+  ul li i {
+    pointer-events: none;
+  }
+  
+  
+  /* Responsiveness */
+  
+  @media only screen and (max-width: 550px) {
+    body {
+      margin-top: 5rem;
+    }
+    .todo-website {
+      width: 89.5%;
+    }
+    h1 {
+      font-size: 15vw;
+    }
+    ul li {
+      width: 90%;
+    }
+  }
+  
+  /* General styling for the task list */
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Style for the task text */
+  .task-text {
+    flex: 0.9;
+    padding: 5px;
+  }
+  
+  /* Icon button styling */
+  button.edit-btn, button.delete-btn {
+    background-color: transparent;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 7.8px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+  }
+  
+  button.edit-btn:hover, button.delete-btn:hover {
+    color: #000;
+  }
+  
+  button.edit-btn i, button.delete-btn i {
+    pointer-events: none; /* Prevent clicking the icon itself */
+  }
+  
+  /* Reduce the size of the icon buttons */
+  button.edit-btn i, button.delete-btn i {
+    font-size: 16px; /* Adjust the icon size */
+  }
+  
+  li:hover button.edit-btn, li:hover button.delete-btn {
+    visibility: visible;
+  }
+  input{
+    padding:12px;
+    border-radius:8px;
+    background: rgba(255,255,255,0.4);
+  }
+  body{
+    background: linear-gradient(135deg, #81D6E1, #C46494, #75387A);
+  }
+  /* Hide the buttons until the list item is hovered over */
+  button.edit-btn, button.delete-btn {
+    visibility: hidden;
+  }
+
+
+  @keyframes pop {
+    0% { transform: scale(0.95); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+button:active {
+    animation: pop 0.4s ease-in-out;
+}
+
+input:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.3s ease;
+}
+
+
+@media only screen and (max-width: 400px) {
+  input, button {
+     font-size: 1.2rem;
+     padding: 8px;
+  }
+  h1 {
+     font-size: 12vw;
+  }
+}
+.quote-banner {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  margin-bottom: 29.8px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  text-align: center;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+body:has(#dark-mode-toggle:checked) .todo-website {
+  background: rgba(57, 20, 39, 10%); /* Slightly darker pinkish color for dark mode */
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); /* Darker shadow */
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 35px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.5s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+ul li {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #231942, #3a0ca3 60%, #7209b7 100%);
+  color: #f8f7ff;
+}
+
+body.dark-mode .todo-website {
+  background: rgba(40, 20, 60, 0.85);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.6);
+  border: 1.5px solid #7209b7;
+}
+
+body.dark-mode h1,
+body.dark-mode .quote-banner,
+body.dark-mode footer {
+  color: #f8f7ff;
+  text-shadow: 0 2px 8px #7209b755;
+}
+
+body.dark-mode .quote-banner {
+  background: rgba(114, 9, 183, 0.14);
+  color: #f8f7ff;
+  border-left: 4px solid #f72585;
+}
+
+body.dark-mode input,
+body.dark-mode #due-date,
+body.dark-mode #priority {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8f7ff;
+  border-bottom: 1.5px solid #f72585;
+}
+
+body.dark-mode input::placeholder {
+  color: #f8f7ffbb;
+}
+
+body.dark-mode ul li {
+  background: rgba(114, 9, 183, 0.15);
+  color: #f8f7ff;
+  border: 1px solid #7209b7;
+  box-shadow: 0 2px 8px #3a0ca355;
+}
+
+body.dark-mode .checked {
+  color: #f72585;
+  text-decoration: line-through;
+}
+
+body.dark-mode .priority {
+  color: #f72585;
+}
+
+body.dark-mode .due-date {
+  color: #b5179e;
+}
+
+body.dark-mode button {
+  background: linear-gradient(90deg, #f72585 0%, #7209b7 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 1.8px 7.9px #7209b755;
+}
+
+body.dark-mode button:hover {
+  background: linear-gradient(90deg, #b5179e 0%, #3a0ca3 100%);
+  color: #fff;
+}
+
+body.dark-mode .edit-btn, 
+body.dark-mode .delete-btn {
+  color: #f8f7ff;
+}
+
+body.dark-mode .edit-btn:hover, 
+body.dark-mode .delete-btn:hover {
+  color: #f72585;
+}
+footer {
+  text-align: center;
+  padding: 25px 0;
+}
+.overdue {
+  background-color: rgba(255, 0, 0, 0.3) !important;
+}
+.overdue button.edit-btn, .overdue button.delete-btn {
+    color: #fff !important;
+}

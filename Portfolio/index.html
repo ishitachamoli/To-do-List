@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-doish</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script defer src="script.js"></script>
+    <!-- Added defer to ensure the script loads after the DOM -->
+  </head>
+  <body>
+    <div class="container">
+      <h1>To-do List</h1>
+      <!-- Add inside .container, just below the <h1> -->
+
+
+      <div class="quote-banner">
+        <p>"The secret of getting ahead is getting started." – Mark Twain</p>
+      </div>
+      
+      <div class="todo-website">
+        <div class="toggle-container">
+          <label class="switch">
+            <input type="checkbox" id="dark-mode-toggle" />
+            <span class="slider"></span>
+          </label>
+        </div>
+        
+ <div class="row">
+  <input type="search" id="input-box" placeholder="Add a task" />
+  <input type="date" id="due-date" />
+  <select id="priority">
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+  <button id="add-btn">Add</button>
+</div>
+
+        <div id="task-counter" style="text-align:right; color:#fff; font-size:1.1em; margin-bottom: 8px;"></div>
+
+        <ul id="list-container"></ul>
+        <!-- Emptied initial list to be populated via JS -->
+        <div class="row">
+          <button id="clear-completed">Remove completed</button>
+          <button id="delete-all">Clear All</button>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p>
+        &copy; 2025 To do list | All Rights Reserved
+      </p>
+        <p>Keep crushing those goals!💪</p>
+    </footer>
+  </body>
+</html>
